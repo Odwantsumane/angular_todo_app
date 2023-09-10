@@ -6,6 +6,7 @@
                 <th>Type</th>
                 <th>Date (by)</th>
                 <th>Done</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -13,7 +14,8 @@
                 <td>{{ todo.title }}</td>
                 <td>{{ todo.type }}</td>
                 <td>{{ todo.date }}</td>
-                <td><input type="checkbox" [checked]="todo.done"></td>
+                <td><input type="checkbox" [checked]="todo.done" (change)="onChange($event)"></td>
+                <td><button type="button" (click)="deleteTodo(todo.id)">Remove</button></td>
             </tr>
         </tbody>
     </table>

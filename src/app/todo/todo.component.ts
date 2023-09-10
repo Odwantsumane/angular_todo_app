@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoStuff } from '../todo-stuff';
+import { TodoServiceService } from '../todo-service.service';
+
 
 @Component({
   selector: 'app-todo',
@@ -10,57 +12,27 @@ import { TodoStuff } from '../todo-stuff';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent {
-  
-  // @Input() todo!: TodoStuff;
-  todoList: TodoStuff[] = [
-    {
-      id: 1,
-      title: 'Todo 1',
-      type: 'Garage',
-      date: '10:00 AM today',
-      done: false,
-    },
-    {
-      id: 2,
-      title: 'Todo 2',
-      type: 'Garage',
-      date: '10:00 AM today',
-      done: true,
-    },
-    {
-      id: 3,
-      title: 'Todo 3',
-      type: 'Garage',
-      date: '10:00 AM today',
-      done: false,
-    },
-    {
-      id: 4,
-      title: 'Todo 4',
-      type: 'Garage',
-      date: '10:00 AM today',
-      done: false,
-    },
-    {
-      id: 5,
-      title: 'Todo 5',
-      type: 'Garage',
-      date: '10:00 AM today',
-      done: true,
-    },
-    {
-      id: 6,
-      title: 'Todo 6',
-      type: 'Garage',
-      date: '10:00 AM today',
-      done: false,
-    },
-    {
-      id: 7,
-      title: 'Todo 7',
-      type: 'Garage',
-      date: '10:00 AM today',
-      done: true,
+  todoList: TodoStuff[] = [];
+  todo: TodoStuff | undefined;
+  // todoTitle: string = "";
+  todoService: TodoServiceService = inject(TodoServiceService);
+
+  constructor() {
+    this.todoList = this.todoService.getAllTodoData();
+    this.todo = this.todoService.getTodoDataById(1);
+  }
+
+  deleteTodo(id: number):  void {
+    this.todoService.deleteTodoById(id) 
+  }
+
+  onChange(event: Event): void {
+    if (event.target instanceof HTMLInputElement) {
+      const isChecked: boolean = event.target.checked;
+      if(isChecked) 
+        console.log("isChecked");
+      else 
+        console.log("is not checked");
     }
-    ]
+   }
 }
