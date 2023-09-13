@@ -1,22 +1,29 @@
 <section class="todoTable">
-    <table class="table table-striped">
+    <table class="table table-hover">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Title</th>
                 <th>Type</th>
-                <th>Date (by)</th>
+                <th>CreatedAt</th>
                 <th>Done</th>
                 <th></th>
+                 
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let todo of todoList">
+                <td>{{ todo.id }}</td>
                 <td>{{ todo.title }}</td>
                 <td>{{ todo.type }}</td>
                 <td>{{ todo.date }}</td>
-                <td><input type="checkbox" [checked]="todo.done" (change)="onChange($event)"></td>
-                <td><button type="button" (click)="deleteTodo(todo.id)">Remove</button></td>
+                <td><input type="checkbox" [checked]="todo.done" (change)="onChange($event, todo.id)"></td>
+                <td><a type="button" class="btn btn-danger" (click)="deleteTodo(todo.id)">Remove</a> 
+                    <a class="btn btn-outline-secondary ms-2" data-bs-toggle="modal" data-bs-target="#todoFormIdl" (click)="update(todo.id)">Update</a></td>
             </tr>
         </tbody>
     </table>
+    <section>
+        <app-update-todo [todo]="todo"></app-update-todo>
+      </section>
 </section>

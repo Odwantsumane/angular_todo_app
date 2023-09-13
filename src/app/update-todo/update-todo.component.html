@@ -1,0 +1,52 @@
+<section>
+    <!-- Button to Open the Modal -->
+    <!-- <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary m-2 " data-bs-toggle="modal" data-bs-target="#todoFormId">
+            New Task
+        </button>
+    </div> -->
+    
+
+    <!-- The Modal -->
+    <div class="modal" id="todoFormIdl">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title" >Update Task</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form>
+                    <label>Id</label>
+                    <input type="number" class="form-control" name="title" [value]="todo.id" #id disabled>
+                
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="type" [value]="todo.title" #title required>
+
+                    <p class="text-danger" *ngIf="false">please fill in this field</p>
+                    
+                    <label>Type</label>
+                    <input type="text" class="form-control" name="title" [value]="todo.type" #type required>
+                    
+                    <p class="text-danger" *ngIf="false">please fill in this field</p>
+                    <label>done</label>
+                    <br>
+                    <input style="height: 20px; width: 20px;" type="checkbox" class="mt-1" name="type" [checked]="todo.done ? true : false" #done disabled>
+                
+                    <p class="text-danger" *ngIf="false">please fill in this field</p>
+
+                    <br>
+                    <label>Created At</label>
+                    <input type="text" class="form-control" name="title" [value]="todo.date" #createdAt disabled>
+
+                    <button type="button" class="btn btn-success mt-2" (click)="updateTask(todo.id, title.value, type.value, createdAt.value, todo.done)" data-bs-dismiss="modal">Submit</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>

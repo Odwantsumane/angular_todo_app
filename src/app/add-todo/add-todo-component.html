@@ -1,0 +1,39 @@
+<section>
+    <!-- Button to Open the Modal -->
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary m-2 " data-bs-toggle="modal" data-bs-target="#todoFormId">
+            New Task
+        </button>
+    </div>
+    
+
+    <!-- The Modal -->
+    <div class="modal" id="todoFormId">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title" >Create Task</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form (ngSubmit)="addTodo(title.value, type.value)">
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="title" value="" #title required>
+                    
+                    <p class="text-danger" *ngIf="successSubmit">please fill in this field</p>
+                    <label>Type</label>
+                    <input type="text" class="form-control" name="type" value="" #type required>
+                
+                    <p class="text-danger" *ngIf="successSubmit">please fill in this field</p>
+                    <button type="submit" class="btn btn-success mt-2" data-bs-dismiss="modal"
+                        (click)="dismissModal()">Submit</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
