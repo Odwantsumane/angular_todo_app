@@ -1,12 +1,4 @@
 <section>
-    <!-- Button to Open the Modal -->
-    <!-- <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-primary m-2 " data-bs-toggle="modal" data-bs-target="#todoFormId">
-            New Task
-        </button>
-    </div> -->
-    
-
     <!-- The Modal -->
     <div class="modal" id="todoFormIdl">
         <div class="modal-dialog">
@@ -43,7 +35,7 @@
                     <label>Created At</label>
                     <input type="text" class="form-control" name="title" [value]="todo.date" #createdAt disabled>
 
-                    <button type="button" class="btn btn-success mt-2" (click)="updateTask(todo.id, title.value, type.value, createdAt.value, todo.done)" data-bs-dismiss="modal">Submit</button>
+                    <button type="button" class="btn btn-success mt-2" (click)="updateTask(todo.id, title.value, type.value, todo.date, todo.done)" data-bs-dismiss="modal">Submit</button>
                 </form>
             </div>
             </div>

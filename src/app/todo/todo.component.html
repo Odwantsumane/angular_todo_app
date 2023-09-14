@@ -18,8 +18,17 @@
                 <td>{{ todo.type }}</td>
                 <td>{{ todo.date }}</td>
                 <td><input type="checkbox" [checked]="todo.done" (change)="onChange($event, todo.id)"></td>
-                <td><a type="button" class="btn btn-danger" (click)="deleteTodo(todo.id)">Remove</a> 
-                    <a class="btn btn-outline-secondary ms-2" data-bs-toggle="modal" data-bs-target="#todoFormIdl" (click)="update(todo.id)">Update</a></td>
+                <!-- <td><a type="button" class="btn btn-danger" (click)="deleteTodo(todo.id)">Remove</a> 
+                    <a class="btn btn-outline-secondary ms-2" data-bs-toggle="modal" data-bs-target="#todoFormIdl" (click)="update(todo.id)">Update</a></td> -->
+                <td><div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                      Options
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a style="cursor: pointer;" class="dropdown-item text-dark" (click)="deleteTodo(todo.id)">Remove</a></li>
+                      <li><a style="cursor: pointer;" class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#todoFormIdl" (click)="update(todo.id)">Update</a></li>
+                    </ul>
+                  </div></td>
             </tr>
         </tbody>
     </table>
