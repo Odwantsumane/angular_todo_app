@@ -17,16 +17,14 @@
                 <td>{{ todo.title }}</td>
                 <td>{{ todo.type }}</td>
                 <td>{{ todo.date }}</td>
-                <td><input type="checkbox" [checked]="todo.done" (change)="onChange($event, todo.id)"></td>
-                <!-- <td><a type="button" class="btn btn-danger" (click)="deleteTodo(todo.id)">Remove</a> 
-                    <a class="btn btn-outline-secondary ms-2" data-bs-toggle="modal" data-bs-target="#todoFormIdl" (click)="update(todo.id)">Update</a></td> -->
+                <td><input type="checkbox" [checked]="todo.done" (change)="onChange($event, todo.id)"></td> 
                 <td><div class="dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                      Options
+                    <button type="button" class="btn" data-bs-toggle="dropdown">
+                        <span class="bi bi-three-dots-vertical"></span>
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a style="cursor: pointer;" class="dropdown-item text-dark" (click)="deleteTodo(todo.id)">Remove</a></li>
-                      <li><a style="cursor: pointer;" class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#todoFormIdl" (click)="update(todo.id)">Update</a></li>
+                        <li><a style="cursor: pointer;" class="dropdown-item text-dark" data-bs-toggle="modal" data-bs-target="#todoFormIdl" (click)="update(todo.id)"><i class="bi bi-pen"></i> Update</a></li>
+                        <li><a style="cursor: pointer;" class="dropdown-item text-danger" (click)="deleteTodo(todo.id)"><i class="bi bi-trash3"></i> Remove</a></li>
                     </ul>
                   </div></td>
             </tr>

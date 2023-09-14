@@ -19,7 +19,6 @@ export class AddTodoComponent {
   todo: TodoStuff = {id: 0, title: "", type: "", date: new Date, done: false};
   todoService: TodoServiceService = inject(TodoServiceService);
   
-
   constructor () {
   }
    
