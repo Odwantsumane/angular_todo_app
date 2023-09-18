@@ -23,11 +23,12 @@ export class UpdateTodoComponent {
 
   updateTask(id: number, title: string, type: string, date: Date, done: boolean): void {
 
-    this.updatedTask = {
-      id: id, title: title, type: type, date: date, done: done
-    }
-    
-    this.todoService.updateWholeTask(this.updatedTask);
+    if(type.length && title.length) {
+      this.updatedTask = {
+        id: id, title: title, type: type, date: date, done: done
+      }
+      this.todoService.updateWholeTask(this.updatedTask);
+    }  
   }
 
 }

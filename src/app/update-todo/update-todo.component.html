@@ -14,7 +14,7 @@
             <div class="modal-body">
                 <form>
                     <label>Id</label>
-                    <input type="number" class="form-control" name="title" [value]="todo.id" #id disabled>
+                    <input type="number" class="form-control" name="title" [value]="todo.id" #id readonly>
                 
                     <label>Title</label>
                     <input type="text" class="form-control" name="type" [value]="todo.title" #title required>
@@ -33,7 +33,7 @@
 
                     <br>
                     <label>Created At</label>
-                    <input type="text" class="form-control" name="title" [value]="todo.date" #createdAt disabled>
+                    <input type="text" class="form-control" name="title" [value]="todo.date" #createdAt readonly>
 
                     <button type="button" class="btn btn-success mt-2" (click)="updateTask(todo.id, title.value, type.value, todo.date, todo.done)" data-bs-dismiss="modal">Submit</button>
                 </form>
