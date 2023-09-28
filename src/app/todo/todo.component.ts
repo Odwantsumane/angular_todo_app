@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TodoStuff } from '../todo-stuff';
 import { TodoServiceService } from '../todo-service.service';
 import { UpdateTodoComponent } from '../update-todo/update-todo.component';
+import { timeInterval } from 'rxjs';
 
 @Component({
   selector: 'app-todo',
@@ -15,6 +16,7 @@ export class TodoComponent {
   todoList: TodoStuff[] = [];
   todo: TodoStuff;
   test: boolean = false;
+  updatedId: number = 0;
   todoService: TodoServiceService = inject(TodoServiceService);
 
   constructor() {
@@ -24,11 +26,16 @@ export class TodoComponent {
 
   deleteTodo(id: number):  void {
     
-    if(this.todoService.getTodoDataById(id)?.done) 
-      this.todoService.deleteTodoById(id);
-    else 
-      alert("Complete the Task or check the checkbox?");
-      
+    // if(this.todoService.getTodoDataById(id)?.done) 
+    //   this.todoService.deleteTodoById(id);
+    // else 
+    //   alert("Complete the Task or check the checkbox?");
+
+
+
+    // delete task
+    console.log("hello world")
+    this.todoService.deleteTodoById(id);
   }
 
   updateTask(id: number, title: string, type: string, date: string, done: boolean): void {
@@ -39,6 +46,10 @@ export class TodoComponent {
   update(id: number): void {
     this.todo = this.todoService.getTodoDataById(id);
   }
+
+  updateID(id: number): void {
+    this.updatedId = id;
+  }
   
 
   onChange(event: Event, id: number): void {
@@ -46,6 +57,9 @@ export class TodoComponent {
       const isChecked: boolean = event.target.checked;
       if(isChecked) { 
         this.todoService.updateTodoById(id, isChecked);
+        
+        // delete task after 3 seconds when its done
+        setTimeout(() => { this.deleteTodo(id) }, 60000);
       }  
       else {
         this.todoService.updateTodoById(id, isChecked);

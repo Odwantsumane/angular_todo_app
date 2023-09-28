@@ -29,8 +29,11 @@
                     <input type="text" class="form-control" name="type" value="" #type required>
                 
                     <p class="text-danger" *ngIf="successSubmit">please fill in this field</p>
-                    <button type="submit" class="btn btn-success mt-2" data-bs-dismiss="modal"
-                        (click)="dismissModal()">Submit</button>
+                    <div style="text-align: center;">
+                     <button type="submit" class="btn btn-success mt-2" data-bs-dismiss="modal"
+                        (click)="dismissModal()">Add</button>   
+                    </div>
+                    
                 </form>
             </div>
             </div>

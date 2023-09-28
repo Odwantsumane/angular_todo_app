@@ -1,4 +1,4 @@
-.results {
+/* .results {
     display: grid;
     column-gap: 14px;
     row-gap: 14px;
@@ -14,10 +14,10 @@
     margin-right: 4px;
     display: inline-block;
     width: 30%;
-  }
-  .btn {
+  } */
+  /* .btn {
     width: 200px;
-  }
+  }  */
   
   /* button {
     padding: 10px;
@@ -28,7 +28,7 @@
     cursor: pointer;
   } */
   
-  @media (min-width: 500px) and (max-width: 768px) {
+  /* @media (min-width: 500px) and (max-width: 768px) {
     .results {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -41,4 +41,4 @@
     .results {
         grid-template-columns: 1fr;
     }    
-  }
+  } */
