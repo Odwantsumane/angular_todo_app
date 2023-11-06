@@ -59,7 +59,7 @@ export class TodoComponent {
         this.todoService.updateTodoById(id, isChecked);
         
         // delete task after 3 seconds when its done
-        setTimeout(() => { this.deleteTodo(id) }, 60000);
+        setTimeout(() => { this.deleteTodo(id) }, 10000);
       }  
       else {
         this.todoService.updateTodoById(id, isChecked);
