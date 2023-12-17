@@ -7,7 +7,7 @@ import { TodoComponent } from './todo/todo.component';
 })
 export class TodoServiceService {
 
-  todoTemp: TodoStuff = {id: 0, title: "", type: "", date: new Date, done: false};
+  todoTemp: TodoStuff = {id: 0, title: "", type: "", date:  "", done: false};
 
   todoList: TodoStuff[] = []
 

@@ -2,6 +2,6 @@ export interface TodoStuff {
     id: number;
     title: string;
     type: string;
-    date: Date;
+    date: String;
     done: boolean;
 }

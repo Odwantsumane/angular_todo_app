@@ -21,6 +21,22 @@ export class TodoComponent {
 
   constructor() {
     this.todoList = this.todoService.getAllTodoData();
+    
+    const milliseconds = new Date();
+    const date = new Date(milliseconds);
+    var date_stringed = `${date}`;
+    var date_stringed = date_stringed.substring(0,15);
+    
+    //check date
+    // todoList2.forEach(todo => {
+      
+    //   if(date_stringed === todo.date.substring(0,15)) {
+    //     todo.date = "today";
+    //   }
+    //   this.todoList.push(todo);
+      
+    // })
+    
     this.todo = this.todoService.getTodoDataById(1);
   }
 
@@ -34,7 +50,7 @@ export class TodoComponent {
 
 
     // delete task
-    console.log("hello world")
+    //console.log("hello world")
     this.todoService.deleteTodoById(id);
   }
 

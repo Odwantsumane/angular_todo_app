@@ -21,7 +21,7 @@ export class UpdateTodoComponent {
 
   }
 
-  updateTask(id: number, title: string, type: string, date: Date, done: boolean): void {
+  updateTask(id: number, title: string, type: string, date: String, done: boolean): void {
 
     if(type.length && title.length) {
       this.updatedTask = {

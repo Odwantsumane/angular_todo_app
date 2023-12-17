@@ -16,7 +16,7 @@ export class AddTodoComponent {
   //dismiss: string = '';
   newId: number = 0;
   successSubmit: boolean = false;
-  todo: TodoStuff = {id: 0, title: "", type: "", date: new Date, done: false};
+  todo: TodoStuff = {id: 0, title: "", type: "", date: "", done: false};
   todoService: TodoServiceService = inject(TodoServiceService);
   
   constructor () {
@@ -25,11 +25,14 @@ export class AddTodoComponent {
   addTodo(title: string, type: string): void {
     const milliseconds = new Date();
     const date = new Date(milliseconds);
+    var date_stringed = `${date}`;
+    var date_stringed = date_stringed.substring(0,25);
+
 
     if(title && type) {
       this.successSubmit = false;
        
-      this.todo = {id: ++this.newId, title: title, type: type, date:  date, done: false};
+      this.todo = {id: ++this.newId, title: title, type: type, date:  date_stringed, done: false};
 
       // add
       this.todoService.addTodoData(this.todo);
